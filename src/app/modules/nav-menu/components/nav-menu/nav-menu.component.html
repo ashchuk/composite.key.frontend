@@ -1,0 +1,20 @@
+<nav style="height:100%">
+    <mat-toolbar class="left-menu" color="primary">
+        <button mat-icon-button (click)="sidenav.close()">
+            <i class="fa fa-times fa-lg"></i>
+        </button>
+
+        <div class="info">
+            <span class="user-info">
+               Test User
+            </span>
+        </div>
+
+
+        <span>{{ title }}</span>
+    </mat-toolbar>
+
+    <div class="side-nav-menu">
+        <ng-content></ng-content>
+    </div>
+</nav>

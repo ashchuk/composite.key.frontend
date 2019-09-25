@@ -1,0 +1,18 @@
+<mat-sidenav-container class="h-100">
+    <mat-sidenav #sidenav mode="over" opened="false">
+        <side-nav-menu [sidenav]="sidenav">
+            <side-nav-item route="/" title="{{ 'nav.home' | translate }}" [iconHome]="true"></side-nav-item>
+        </side-nav-menu>
+    </mat-sidenav>
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
+        <div class="app-name ml-1 md-ml-4">{{'nav.appName' | translate }}</div>
+    </mat-toolbar>
+
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</mat-sidenav-container>

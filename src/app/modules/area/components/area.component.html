@@ -1,0 +1,55 @@
+<div class="content">
+    <button mat-icon-button class="mb-3" (click)="getLink(0)">
+        <i class="fa fa-plus fa-2x"></i>
+    </button>
+
+    <table mat-table class="area-table" [dataSource]="areaSource">
+        <ng-container matColumnDef="id">
+            <th *matHeaderCellDef>{{ 'details.id' | translate }}</th>
+            <td *matCellDef="let area">{{area.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th *matHeaderCellDef>{{ 'details.name' | translate }}</th>
+            <td class="name-cell" *matCellDef="let area">{{area.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdOn">
+            <th *matHeaderCellDef>{{ 'details.createdOn' | translate }}</th>
+            <td class="createdOn-cell" *matCellDef="let area">{{area.createdOn}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdBy">
+            <th *matHeaderCellDef>{{ 'details.createdBy' | translate }}</th>
+            <td class="createdBy-cell" *matCellDef="let area">{{area.createdBy}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="updatedOn">
+            <th *matHeaderCellDef>{{ 'details.updatedOn' | translate }}</th>
+            <td class="updatedOn-cell" *matCellDef="let area">{{area.updatedOn}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="updatedBy">
+            <th *matHeaderCellDef>{{ 'details.updatedBy' | translate }}</th>
+            <td class="updatedBy-cell" *matCellDef="let area">{{area.updatedBy}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th *matHeaderCellDef></th>
+            <td class="edit-cell" *matCellDef="let area">
+                <i class="fa fa-edit fa-2x" aria-hidden="true" (click)="getLink(area.id)"></i>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th *matHeaderCellDef></th>
+            <td class="delete-cell" *matCellDef="let area">
+                <i class="fa fa-trash fa-2x" aria-hidden="true" (click)="onRemove(area)"></i>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+</div>

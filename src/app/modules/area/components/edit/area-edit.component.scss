@@ -1,0 +1,21 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.info {
+    margin-bottom: 20px;
+    .area {
+        &-details {
+            flex-direction: row;
+            display: flex;
+            .item {
+                &-label {
+                    color: rgba(0, 0, 0, 0.54);
+                    width: 150px;
+                }
+            }
+        }
+    }
+}

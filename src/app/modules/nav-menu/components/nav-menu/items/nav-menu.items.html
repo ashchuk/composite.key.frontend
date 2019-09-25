@@ -1,0 +1,6 @@
+<a class="side-nav-item" matRipple [ngClass]="{'side-nav-item-active': active,'side-nav-item-disabled': disabled, 'active': active}" (click)="navigate()">
+    <div class="icon">
+        <i class="fa fa-lg" aria-hidden="true" [ngClass]="{'fa-home': iconHome}"></i>
+    </div>  
+    <span style="vertical-align:middle">{{ title }}</span>
+</a>

@@ -1,0 +1,7 @@
+<div mat-dialog-content>
+    <p> {{ 'modal.delete' | translate }} {{data.area.name}}?</p>
+</div>
+<div mat-dialog-actions class="submit-block">
+    <button mat-button (click)="onNoClick()">{{ 'modal.no' | translate }}</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>{{ 'modal.ok' | translate }}</button>
+</div>

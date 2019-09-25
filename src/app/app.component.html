@@ -1,0 +1,8 @@
+<app-loader></app-loader>
+<div *ngIf="isAuthenticated; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <app-secure></app-secure>
+</ng-template>
+<ng-template #elseBlock>
+    <app-public></app-public>
+</ng-template>

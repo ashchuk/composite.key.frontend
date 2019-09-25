@@ -1,0 +1,23 @@
+<div class="content">
+    <div class="info" *ngIf="areaItems.length > 1">
+        <div *ngFor="let item of areaItems" class="area-details">
+            <div class="item-label">{{ 'details.' + item.name | translate }} : </div>
+            <div>{{item.value}}</div>
+        </div>
+    </div>
+
+
+    <form class="area-form" (ngSubmit)="onSave()">
+        <mat-form-field class="area-full-width">
+            <input matInput placeholder="{{ 'details.name' | translate }}" [formControl]="areaFormControl"
+                [errorStateMatcher]="matcher" autocomplete="off" [(ngModel)]="area.name">
+            <mat-error *ngIf="!areaFormControl.valid && !areaFormControl.hasError('required')">
+                {{ 'details.invalidName' | translate }}
+            </mat-error>
+            <mat-error *ngIf="areaFormControl.hasError('required')">
+                {{ 'details.name' | translate }} {{ 'details.requiredField' | translate }}
+            </mat-error>
+        </mat-form-field>
+        <button mat-button type="submit" [disabled]="!areaFormControl.valid">{{ 'details.save' | translate }}</button>
+    </form>
+</div>
